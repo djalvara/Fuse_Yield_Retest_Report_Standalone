@@ -56,6 +56,36 @@ Generate the report automatically as part of the pull:
 python .\vpo_bin_attributes_pull.py --product GNR --days-ago 5 --create-report
 ```
 
+## Product Examples
+Use these as copy-paste starting points for the supported products.
+
+GNR recent pull and report generation:
+
+```powershell
+python .\vpo_bin_attributes_pull.py --product GNR --days-ago 5
+python .\Yield_Retest_Report_Create.py --csv .\output_dir\vpo_bin_attrs_GNR_5d_<timestamp>.csv
+```
+
+GNR pull with report generation in one step:
+
+```powershell
+python .\vpo_bin_attributes_pull.py --product GNR --days-ago 5 --create-report
+```
+
+DMR exact month pull and keep raw CSV:
+
+```powershell
+python .\vpo_bin_attributes_pull.py --product DMR --month 2026-03 --keep-raw
+python .\Yield_Retest_Report_Create.py --csv .\output_dir\vpo_bin_attrs_DMR_2026-03_<timestamp>.csv
+```
+
+CWF recent pull for latest runs only:
+
+```powershell
+python .\vpo_bin_attributes_pull.py --product CWF --days-ago 7 --latest-only
+python .\Yield_Retest_Report_Create.py --csv .\output_dir\vpo_bin_attrs_CWF_7d_<timestamp>.csv
+```
+
 ## Output
 By default, both scripts use `output_dir` under the repository root.
 
