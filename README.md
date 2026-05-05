@@ -13,6 +13,21 @@ Standalone utilities for pulling VPO bin attributes from MIDAS and generating an
 - Access to the required Intel Python package index.
 - `IntelChain.pem` present locally at the repository root.
 
+## Install
+Create and activate a virtual environment, then install the Python dependencies:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r .\requirements.txt -i https://intelpypi.intel.com/pythonsv/production
+```
+
+If your environment needs the older keyring package used in related Intel tooling, install it before the requirements file:
+
+```powershell
+python -m pip install "keyring<23.7.0" -i https://intelpypi.intel.com/pythonsv/production
+```
+
 ## Setup
 Set the certificate path in each new terminal session:
 

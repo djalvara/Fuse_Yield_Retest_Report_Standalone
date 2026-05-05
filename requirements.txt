@@ -1,0 +1,4 @@
+# Direct Python dependencies for the standalone scripts.
+# `pysvtools` is typically resolved from Intel's internal Python package index.
+pandas
+pysvtools
