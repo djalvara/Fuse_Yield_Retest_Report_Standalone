@@ -1,0 +1,31 @@
+Version 1.0;
+ 
+SubBinDefs
+{
+    BinGroup HardBins
+    {
+        Bin b60_FAIL_ARRAY_CELL_STABILITY_CACHE 60 : "b60_FAIL_ARRAY_CELL_STABILITY_CACHE", Fail;
+        Bin b62_FAIL_L2_CACHE                   62 : "b62_FAIL_L2_CACHE"                  , Fail;
+    }
+
+    BinGroup SoftBins
+    {
+        Bin b6000_fail_Generic_bin               6000 : "b6000_fail_Generic_bin"              , b60_FAIL_ARRAY_CELL_STABILITY_CACHE;
+        Bin b6090_FAIL_ARR_COMMON_CUSTOMDATA     6090 : "b6090_FAIL_ARR_COMMON_CUSTOMDATA"    , b60_FAIL_ARRAY_CELL_STABILITY_CACHE;
+        Bin b6091_FAIL_ARR_COMMON_DFFGETSET      6091 : "b6091_FAIL_ARR_COMMON_DFFGETSET"     , b60_FAIL_ARRAY_CELL_STABILITY_CACHE;
+        Bin b6092_fail_Generic_bin               6092 : "b6092_fail_Generic_bin"              , b60_FAIL_ARRAY_CELL_STABILITY_CACHE;
+        Bin b6093_fail_Generic_bin               6093 : "b6093_fail_Generic_bin"              , b60_FAIL_ARRAY_CELL_STABILITY_CACHE;
+        Bin b6094_fail_Generic_bin               6094 : "b6094_fail_Generic_bin"              , b60_FAIL_ARRAY_CELL_STABILITY_CACHE;
+        Bin b6095_fail_Generic_bin               6095 : "b6095_fail_Generic_bin"              , b60_FAIL_ARRAY_CELL_STABILITY_CACHE;
+        Bin b6098_fail_Generic_bin               6098 : "b6098_fail_Generic_bin"              , b60_FAIL_ARRAY_CELL_STABILITY_CACHE;
+        Bin b6290_fail_Generic_bin               6290 : "b6290_fail_Generic_bin"              , b62_FAIL_L2_CACHE;        
+        Bin b9861_fail_FAIL_SYSTEM_SOFTWARE      9861 : "b9861_fail_FAIL_SYSTEM_SOFTWARE"     , b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9961_fail_FAIL_DPS_ALARM            9961 : "b9961_fail_FAIL_DPS_ALARM"           , b99_FAIL_HARDWARE_ERROR;
+    }
+    BinGroup DataBins
+    {
+        LeafBin b90986103_fail_ARR_MBISTREP_IMH_SHARED_BIN_n1    90986103	: "b90986103_fail_ARR_MBISTREP_IMH_SHARED_BIN_n1",    b9861_fail_FAIL_SYSTEM_SOFTWARE;
+	    LeafBin b90996103_fail_ARR_MBISTREP_IMH_SHARED_BIN_n2    90996103	: "b90996103_fail_ARR_MBISTREP_IMH_SHARED_BIN_n2",    b9961_fail_FAIL_DPS_ALARM;
+    }
+
+}

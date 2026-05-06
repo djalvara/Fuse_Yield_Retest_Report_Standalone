@@ -1,0 +1,101 @@
+Version 1.0;
+
+SubBinDefs
+{
+       BinGroup HardBins
+    {
+        Bin b08_FAIL_TPI_VCC             08 : "b08_FAIL_TPI_VCC"            , Fail;
+        Bin b10_FAIL_TPI_SHOPS_EDM_SHORT 10 : "b10_FAIL_TPI_SHOPS_EDM_SHORT", Fail;
+        Bin b15_FAIL_TPI_SHOPS_EDM_OPEN  15 : "b15_FAIL_TPI_SHOPS_EDM_OPEN" , Fail;
+        Bin b90_FAIL_USER_FUNC           90 : "b90_FAIL_USER_FUNC"          , Fail;
+    }
+
+    BinGroup SoftBins
+    {
+        Bin b0800_fail_VCC_X_CONT_K_START_X_X_X_X_DDIE      0800 : "b0800_fail_VCC_X_CONT_K_START_X_X_X_X_DDIE", b08_FAIL_TPI_VCC;
+        Bin b0801_fail_VCC_X_CONT_HC                        0801 : "b0801_fail_VCC_X_CONT_HC"                  , b08_FAIL_TPI_VCC;
+        Bin b0802_fail_VCC_X_CONT_HC                        0802 : "b0802_fail_VCC_X_CONT_HC"                  , b08_FAIL_TPI_VCC;
+        Bin b0803_fail_VCC_X_CONT_HV                        0803 : "b0803_fail_VCC_X_CONT_HV"                  , b08_FAIL_TPI_VCC;
+        Bin b0804_fail_VCC_X_CONT_HV                        0804 : "b0804_fail_VCC_X_CONT_HV"                  , b08_FAIL_TPI_VCC;
+        Bin b0805_fail_VCC_X_CONT_HV                        0805 : "b0805_fail_VCC_X_CONT_HV"                  , b08_FAIL_TPI_VCC;
+        Bin b0806_fail_VCC_X_CONT_HV                        0806 : "b0806_fail_VCC_X_CONT_HV"                  , b08_FAIL_TPI_VCC;
+        Bin b0807_fail_VCC_X_CONT_HV                        0807 : "b0807_fail_VCC_X_CONT_HV"                  , b08_FAIL_TPI_VCC;
+        Bin b0808_fail_VCC_X_CONT_HV                        0808 : "b0808_fail_VCC_X_CONT_HV"                  , b08_FAIL_TPI_VCC;
+        Bin b0809_fail_VCC_X_CONT_HV                        0809 : "b0809_fail_VCC_X_CONT_HV"                  , b08_FAIL_TPI_VCC;
+        Bin b0810_fail_VCC_X_CONT_HV                        0810 : "b0810_fail_VCC_X_CONT_HV"                  , b08_FAIL_TPI_VCC;
+        Bin b0811_fail_VCC_X_CONT_LC                        0811 : "b0811_fail_VCC_X_CONT_LC"                  , b08_FAIL_TPI_VCC;
+        Bin b0812_fail_VCC_X_CONT_LC                        0812 : "b0812_fail_VCC_X_CONT_LC"                  , b08_FAIL_TPI_VCC;
+        Bin b0813_fail_VCC_X_CONT_LC                        0813 : "b0813_fail_VCC_X_CONT_LC"                  , b08_FAIL_TPI_VCC;
+        Bin b0814_fail_VCC_X_CONT_LC                        0814 : "b0814_fail_VCC_X_CONT_LC"                  , b08_FAIL_TPI_VCC;
+        Bin b0815_fail_VCC_X_CONT_LC                        0815 : "b0815_fail_VCC_X_CONT_LC"                  , b08_FAIL_TPI_VCC;
+        Bin b0816_fail_VCC_X_CONT_VLC                       0816 : "b0816_fail_VCC_X_CONT_VLC"                 , b08_FAIL_TPI_VCC;
+        Bin b0817_fail_VCC_X_CONT_VLC                       0817 : "b0817_fail_VCC_X_CONT_VLC"                 , b08_FAIL_TPI_VCC;
+        Bin b0818_fail_VCC_X_CONT_VLC                       0818 : "b0818_fail_VCC_X_CONT_VLC"                 , b08_FAIL_TPI_VCC;
+        Bin b0819_fail_VCC_X_CONT_VLC                       0819 : "b0819_fail_VCC_X_CONT_VLC"                 , b08_FAIL_TPI_VCC;
+        Bin b0820_fail_VCC_X_CONT_VLC                       0820 : "b0820_fail_VCC_X_CONT_VLC"                 , b08_FAIL_TPI_VCC;
+        Bin b0821_fail_VCC_X_CONT_VLC                       0821 : "b0821_fail_VCC_X_CONT_VLC"                 , b08_FAIL_TPI_VCC;
+        Bin b0822_fail_VCC_X_CONT_VLC                       0822 : "b0822_fail_VCC_X_CONT_VLC"                 , b08_FAIL_TPI_VCC;
+        Bin b0823_fail_VCC_X_CONT_VLC                       0823 : "b0823_fail_VCC_X_CONT_VLC"                 , b08_FAIL_TPI_VCC;
+        Bin b0824_fail_VCC_X_CONT_VLC                       0824 : "b0824_fail_VCC_X_CONT_VLC"                 , b08_FAIL_TPI_VCC;
+        Bin b0825_fail_VCC_X_CONT_VLC                       0825 : "b0825_fail_VCC_X_CONT_VLC"                 , b08_FAIL_TPI_VCC;
+        Bin b0826_fail_VCC_X_CONT_VLC                       0826 : "b0826_fail_VCC_X_CONT_VLC"                 , b08_FAIL_TPI_VCC;
+        Bin b0827_fail_VCC_X_CONT_VLC                       0827 : "b0827_fail_VCC_X_CONT_VLC"                 , b08_FAIL_TPI_VCC;
+        Bin b0828_fail_VCC_X_CONT_VLC                       0828 : "b0828_fail_VCC_X_CONT_VLC"                 , b08_FAIL_TPI_VCC;
+        Bin b0829_fail_VCC_X_CONT_VLC                       0829 : "b0829_fail_VCC_X_CONT_VLC"                 , b08_FAIL_TPI_VCC;
+        Bin b0830_fail_VCC_X_CONT_VLC                       0830 : "b0830_fail_VCC_X_CONT_VLC"                 , b08_FAIL_TPI_VCC;
+        Bin b0831_fail_VCC_X_CONT_VLC                       0831 : "b0831_fail_VCC_X_CONT_VLC"                 , b08_FAIL_TPI_VCC;
+        Bin b9000_fail_TPI_VCC_PWRDOWN                     9000 : "b9000_fail_TPI_VCC_PWRDOWN"                , b90_FAIL_USER_FUNC;
+        Bin b9001_fail_TPI_BASE_START_QNR                  9001 : "b9001_fail_TPI_BASE_START_QNR"             , b90_FAIL_USER_FUNC;
+        Bin b9008_fail_TPI_BASE_MAIN                       9008 : "b9008_fail_TPI_BASE_MAIN"                  , b90_FAIL_USER_FUNC;
+        Bin b9808                                          9808 : "b9808"                                     , b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9908                                          9908 : "b9908"                                     , b99_FAIL_HARDWARE_ERROR;
+    }
+
+    BinGroup DataBins
+    {
+        LeafBin b90080100_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HC_VSIM_2                  90080100 : "b90080100_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HC_VSIM_2"                 , b0801_fail_VCC_X_CONT_HC;
+        LeafBin b90080200_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HC_VSIM_3                  90080200 : "b90080200_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HC_VSIM_3"                 , b0802_fail_VCC_X_CONT_HC;
+        LeafBin b90080302_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HV_VSIM_2                  90080302 : "b90080302_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HV_VSIM_2"                 , b0803_fail_VCC_X_CONT_HV;
+        LeafBin b90080401_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HV_VSIM_3                  90080401 : "b90080401_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HV_VSIM_3"                 , b0804_fail_VCC_X_CONT_HV;
+        LeafBin b90080500_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HV_VSIM_4                  90080500 : "b90080500_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HV_VSIM_4"                 , b0805_fail_VCC_X_CONT_HV;
+        LeafBin b90080600_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HV_VSIM_5                  90080600 : "b90080600_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HV_VSIM_5"                 , b0806_fail_VCC_X_CONT_HV;
+        LeafBin b90080711_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HV_VSIM_6                  90080711 : "b90080711_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HV_VSIM_6"                 , b0807_fail_VCC_X_CONT_HV;
+        LeafBin b90080811_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HV_VSIM_7                  90080811 : "b90080811_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HV_VSIM_7"                 , b0808_fail_VCC_X_CONT_HV;
+        LeafBin b90080911_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HV_VSIM_8                  90080911 : "b90080911_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HV_VSIM_8"                 , b0809_fail_VCC_X_CONT_HV;
+        LeafBin b90081011_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HV_VSIM_9                  90081011 : "b90081011_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HV_VSIM_9"                 , b0810_fail_VCC_X_CONT_HV;
+        LeafBin b90081103_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_LC_VSIM_2                  90081103 : "b90081103_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_LC_VSIM_2"                 , b0811_fail_VCC_X_CONT_LC;
+        LeafBin b90081202_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_LC_VSIM_3                  90081202 : "b90081202_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_LC_VSIM_3"                 , b0812_fail_VCC_X_CONT_LC;
+        LeafBin b90081300_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_LC_VSIM_4                  90081300 : "b90081300_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_LC_VSIM_4"                 , b0813_fail_VCC_X_CONT_LC;
+        LeafBin b90081400_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_LC_VSIM_5                  90081400 : "b90081400_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_LC_VSIM_5"                 , b0814_fail_VCC_X_CONT_LC;
+        LeafBin b90081512_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_LC_VSIM_6                  90081512 : "b90081512_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_LC_VSIM_6"                 , b0815_fail_VCC_X_CONT_LC;
+        LeafBin b90081600_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_2                 90081600 : "b90081600_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_2"                , b0816_fail_VCC_X_CONT_VLC;
+        LeafBin b90081703_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_3                 90081703 : "b90081703_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_3"                , b0817_fail_VCC_X_CONT_VLC;
+        LeafBin b90081820_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_4                 90081820 : "b90081820_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_4"                , b0818_fail_VCC_X_CONT_VLC;
+        LeafBin b90081920_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_5                 90081920 : "b90081920_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_5"                , b0819_fail_VCC_X_CONT_VLC;
+        LeafBin b90082013_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_6                 90082013 : "b90082013_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_6"                , b0820_fail_VCC_X_CONT_VLC;
+        LeafBin b90082113_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_7                 90082113 : "b90082113_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_7"                , b0821_fail_VCC_X_CONT_VLC;
+        LeafBin b90082213_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_8                 90082213 : "b90082213_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_8"                , b0822_fail_VCC_X_CONT_VLC;
+        LeafBin b90082313_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_9                 90082313 : "b90082313_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_9"                , b0823_fail_VCC_X_CONT_VLC;
+        LeafBin b90082413_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_10                90082413 : "b90082413_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_10"               , b0824_fail_VCC_X_CONT_VLC;
+        LeafBin b90082513_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_11                90082513 : "b90082513_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_11"               , b0825_fail_VCC_X_CONT_VLC;
+        LeafBin b90082613_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_12                90082613 : "b90082613_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_12"               , b0826_fail_VCC_X_CONT_VLC;
+        LeafBin b90082713_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_13                90082713 : "b90082713_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_13"               , b0827_fail_VCC_X_CONT_VLC;
+        LeafBin b90082813_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_14                90082813 : "b90082813_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_14"               , b0828_fail_VCC_X_CONT_VLC;
+        LeafBin b90082913_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_15                90082913 : "b90082913_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_15"               , b0829_fail_VCC_X_CONT_VLC;
+        LeafBin b90083013_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_16                90083013 : "b90083013_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_16"               , b0830_fail_VCC_X_CONT_VLC;
+        LeafBin b90083113_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_17                90083113 : "b90083113_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_17"               , b0831_fail_VCC_X_CONT_VLC;
+        LeafBin b90900005_fail_TPI_VCC_ESOAK_VCC_X_POWERDOWN_E_START_X_X_X_X_VCC_ESOAK_START_2     90900005 : "b90900005_fail_TPI_VCC_ESOAK_VCC_X_POWERDOWN_E_START_X_X_X_X_VCC_ESOAK_START_2"    , b9000_fail_TPI_VCC_PWRDOWN;
+        LeafBin b90900101_fail_TPI_VCC_ESOAK_VCC_X_POWERDOWN_E_START_X_X_X_X_VCC_ESOAK_START_0     90900101 : "b90900101_fail_TPI_VCC_ESOAK_VCC_X_POWERDOWN_E_START_X_X_X_X_VCC_ESOAK_START_0"    , b9001_fail_TPI_BASE_START_QNR;
+        LeafBin b90900802_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HC_VSIM_0                  90900802 : "b90900802_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HC_VSIM_0"                 , b9008_fail_TPI_BASE_MAIN;
+        LeafBin b90900803_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HV_VSIM_0                  90900803 : "b90900803_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_HV_VSIM_0"                 , b9008_fail_TPI_BASE_MAIN;
+        LeafBin b90900804_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_LC_VSIM_0                  90900804 : "b90900804_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_LC_VSIM_0"                 , b9008_fail_TPI_BASE_MAIN;
+        LeafBin b90900805_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_0                 90900805 : "b90900805_fail_TPI_VCC_ESOAK_VCC_X_CONT_K_START_X_X_X_X_VLC_VSIM_0"                , b9008_fail_TPI_BASE_MAIN;
+        LeafBin b90900806_fail_TPI_VCC_ESOAK_VCC_X_POWERDOWN_K_START_X_X_X_X_VCC_ESOAK_START_END_0 90900806 : "b90900806_fail_TPI_VCC_ESOAK_VCC_X_POWERDOWN_K_START_X_X_X_X_VCC_ESOAK_START_END_0", b9008_fail_TPI_BASE_MAIN;
+        LeafBin b90900807_fail_TPI_VCC_ESOAK_VCC_X_POWERDOWN_K_START_X_X_X_X_VCC_ESOAK_START_END_2 90900807 : "b90900807_fail_TPI_VCC_ESOAK_VCC_X_POWERDOWN_K_START_X_X_X_X_VCC_ESOAK_START_END_2", b9008_fail_TPI_BASE_MAIN;
+        LeafBin b90900808_fail_TPI_VCC_ESOAK_VCC_X_POWERDOWN_K_START_X_X_X_X_VCC_ESOAK_START_STC_0 90900808 : "b90900808_fail_TPI_VCC_ESOAK_VCC_X_POWERDOWN_K_START_X_X_X_X_VCC_ESOAK_START_STC_0", b9008_fail_TPI_BASE_MAIN;
+        LeafBin b90900809_fail_TPI_VCC_ESOAK_VCC_X_POWERDOWN_K_START_X_X_X_X_VCC_ESOAK_START_STC_2 90900809 : "b90900809_fail_TPI_VCC_ESOAK_VCC_X_POWERDOWN_K_START_X_X_X_X_VCC_ESOAK_START_STC_2", b9008_fail_TPI_BASE_MAIN;
+        LeafBin b90980801_fail_TPI_VCC_ESOAK_SHARED_BIN_n1                                         90980801 : "b90980801_fail_TPI_VCC_ESOAK_SHARED_BIN_n1"                                        , b9808;
+        LeafBin b90990801_fail_TPI_VCC_ESOAK_SHARED_BIN_n2                                         90990801 : "b90990801_fail_TPI_VCC_ESOAK_SHARED_BIN_n2"                                        , b9908;
+    }
+
+}

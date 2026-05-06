@@ -1,0 +1,23 @@
+Version 1.0;
+
+SubBinDefs
+{
+    BinGroup HardBins
+    {
+        Bin b90_FAIL_USER_FUNC 90 : "b90_FAIL_USER_FUNC", Fail;
+    }
+
+    BinGroup SoftBins
+    {
+        Bin b9001_fail_TPI_BASE_START_QNR   9001 : "b9001_fail_TPI_BASE_START_QNR"  , b90_FAIL_USER_FUNC;
+		Bin b9883_fail_FAIL_SYSTEM_SOFTWARE    9883	: "b9883_fail_FAIL_SYSTEM_SOFTWARE",    b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;        
+		Bin b9983_fail_FAIL_DPS_ALARM    9983	: "b9983_fail_FAIL_DPS_ALARM",    b99_FAIL_HARDWARE_ERROR;        
+    }
+
+    BinGroup DataBins
+    {
+        LeafBin b90988302_fail_QNR_CARV_IMH_SHARED_BIN_n1    90988302	: "b90988302_fail_QNR_CARV_IMH_SHARED_BIN_n1",    b9883_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90998302_fail_QNR_CARV_IMH_SHARED_BIN_n2    90998302	: "b90998302_fail_QNR_CARV_IMH_SHARED_BIN_n2",    b9983_fail_FAIL_DPS_ALARM;
+        }
+
+}

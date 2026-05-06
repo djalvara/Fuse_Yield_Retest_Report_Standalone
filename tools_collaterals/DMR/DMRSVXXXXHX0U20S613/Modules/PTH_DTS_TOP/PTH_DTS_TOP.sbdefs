@@ -1,0 +1,86 @@
+Version 1.0;
+
+SubBinDefs
+{
+    BinGroup HardBins
+    {
+        Bin b64_FAIL_DTS 64 : "b64_FAIL_DTS", Fail;
+    }
+
+    BinGroup SoftBins
+    {
+        Bin b6400                               6400 : "b6400"                          , b64_FAIL_DTS;
+        Bin b6403_fail_PTH_DTS                  6403 : "b6403_fail_PTH_DTS"             , b64_FAIL_DTS;
+        Bin b6404_fail_Generic_bin              6404 : "b6404_fail_Generic_bin"         , b64_FAIL_DTS;
+        Bin b9405                               9405 : "b9405"                          , b94_FAIL_CL_OR_QA_DOWNBIN_2;
+        Bin b9700                               9700 : "b9700"                          , b97_FAIL_UEI_COMMUNICATION_ALARM;
+        Bin b9864_fail_FAIL_SYSTEM_SOFTWARE     9864 : "b9864_fail_FAIL_SYSTEM_SOFTWARE", b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9866_fail_FAIL_SYSTEM_SOFTWARE     9866 : "b9866_fail_FAIL_SYSTEM_SOFTWARE", b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9964_fail_FAIL_DPS_ALARM           9964 : "b9964_fail_FAIL_DPS_ALARM"      , b99_FAIL_HARDWARE_ERROR;
+    }
+
+    BinGroup DataBins
+    {
+		LeafBin b90640000_fail_PTH_DTS_TOP_DTS_TOP_TCI_K_BGNCBB_X_X_X_X_TOPDTSEND_copy_0    90640000	: "b90640000_fail_PTH_DTS_TOP_DTS_TOP_TCI_K_BGNCBB_X_X_X_X_TOPDTSEND_copy_0",    b6400;
+		LeafBin b90640001_fail_PTH_DTS_TOP_DTS_TOP_TCI_K_BGNCBB_X_X_X_X_TOPDTSEND_copy_0    90640001	: "b90640001_fail_PTH_DTS_TOP_DTS_TOP_TCI_K_BGNCBB_X_X_X_X_TOPDTSEND_copy_0",    b6400;
+        LeafBin b90640400_fail_PTH_DTS_TOP_DTS_TOP_X_K_BGNCBB_X_X_X_X_SS_2                   90640400 : "b90640400_fail_PTH_DTS_TOP_DTS_TOP_X_K_BGNCBB_X_X_X_X_SS_2"                  , b6404_fail_Generic_bin;
+        LeafBin b90640405_fail_PTH_DTS_TOP_DTS_TOP_TPKNOB_K_BGNCBB_X_X_X_X_COLDFORK_0        90640405 : "b90640405_fail_PTH_DTS_TOP_DTS_TOP_TPKNOB_K_BGNCBB_X_X_X_X_COLDFORK_0"       , b6404_fail_Generic_bin;
+        LeafBin b90640417_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_DTSTRIM_CORE_0       90640417 : "b90640417_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_DTSTRIM_CORE_0"      , b6404_fail_Generic_bin;
+        LeafBin b90640418_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD0_0   90640418 : "b90640418_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD0_0"  , b6404_fail_Generic_bin;
+        LeafBin b90640419_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD1_0   90640419 : "b90640419_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD1_0"  , b6404_fail_Generic_bin;
+        LeafBin b90640422_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_TEMPREAD_CORE_0      90640422 : "b90640422_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_TEMPREAD_CORE_0"     , b6404_fail_Generic_bin;
+        LeafBin b90640428_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD10_0  90640428 : "b90640428_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD10_0" , b6404_fail_Generic_bin;
+        LeafBin b90640429_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD11_0  90640429 : "b90640429_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD11_0" , b6404_fail_Generic_bin;
+        LeafBin b90640430_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD12_0  90640430 : "b90640430_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD12_0" , b6404_fail_Generic_bin;
+        LeafBin b90640431_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD13_0  90640431 : "b90640431_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD13_0" , b6404_fail_Generic_bin;
+        LeafBin b90640432_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD14_0  90640432 : "b90640432_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD14_0" , b6404_fail_Generic_bin;
+        LeafBin b90640433_fail_PTH_DTS_TOP_DTS_TOP_TAP_E_BGNCBB_X_X_X_X_CORE_0               90640433 : "b90640433_fail_PTH_DTS_TOP_DTS_TOP_TAP_E_BGNCBB_X_X_X_X_CORE_0"              , b6404_fail_Generic_bin;
+        LeafBin b90640434_fail_PTH_DTS_TOP_DTS_TOP_TAP_E_BGNCBB_X_X_X_X_CORE_2               90640434 : "b90640434_fail_PTH_DTS_TOP_DTS_TOP_TAP_E_BGNCBB_X_X_X_X_CORE_2"              , b6404_fail_Generic_bin;
+        LeafBin b90640435_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD2_0   90640435 : "b90640435_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD2_0"  , b6404_fail_Generic_bin;
+        LeafBin b90640436_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD3_0   90640436 : "b90640436_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD3_0"  , b6404_fail_Generic_bin;
+        LeafBin b90640437_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD4_0   90640437 : "b90640437_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD4_0"  , b6404_fail_Generic_bin;
+        LeafBin b90640438_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD5_0   90640438 : "b90640438_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD5_0"  , b6404_fail_Generic_bin;
+        LeafBin b90640439_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD6_0   90640439 : "b90640439_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD6_0"  , b6404_fail_Generic_bin;
+        LeafBin b90640440_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD7_0   90640440 : "b90640440_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD7_0"  , b6404_fail_Generic_bin;
+        LeafBin b90640441_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD8_0   90640441 : "b90640441_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD8_0"  , b6404_fail_Generic_bin;
+        LeafBin b90640442_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD9_0   90640442 : "b90640442_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_CATTRIM_CORE_RD9_0"  , b6404_fail_Generic_bin;
+        LeafBin b90640444_fail_PTH_DTS_TOP_DTS_TOP_TPKNOB_K_BGNCBB_X_X_X_X_AHMT_0            90640444 : "b90640444_fail_PTH_DTS_TOP_DTS_TOP_TPKNOB_K_BGNCBB_X_X_X_X_AHMT_0"           , b6404_fail_Generic_bin;
+        LeafBin b90640445_fail_PTH_DTS_TOP_DTS_TOP_TCI_K_BGNCBB_X_X_X_X_TOP_0                90640445 : "b90640445_fail_PTH_DTS_TOP_DTS_TOP_TCI_K_BGNCBB_X_X_X_X_TOP_0"               , b6404_fail_Generic_bin;
+        LeafBin b90640446_fail_PTH_DTS_TOP_DTS_TOP_X_K_BGNCBB_X_X_X_X_SS_0                   90640446 : "b90640446_fail_PTH_DTS_TOP_DTS_TOP_X_K_BGNCBB_X_X_X_X_SS_0"                  , b6404_fail_Generic_bin;
+        LeafBin b90640448_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_TEMPREAD_CORE_QA_0   90640448 : "b90640448_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_TEMPREAD_CORE_QA_0"  , b6404_fail_Generic_bin;
+        LeafBin b90640449_fail_PTH_DTS_TOP_DTS_TOP_TPKNOB_K_BGNCBB_X_X_X_X_QACOLDFORK_0      90640449 : "b90640449_fail_PTH_DTS_TOP_DTS_TOP_TPKNOB_K_BGNCBB_X_X_X_X_QACOLDFORK_0"     , b6404_fail_Generic_bin;
+        LeafBin b90640450_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_TEMPREAD_CORE_COLD_0 90640450 : "b90640450_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_BGNCBB_X_X_X_X_TEMPREAD_CORE_COLD_0", b6404_fail_Generic_bin;
+        LeafBin b90640461_fail_PTH_DTS_TOP_DTS_TOP_TCI_K_BGNCBB_X_X_X_X_TOPDTSEND_0          90640461 : "b90640461_fail_PTH_DTS_TOP_DTS_TOP_TCI_K_BGNCBB_X_X_X_X_TOPDTSEND_0"         , b6404_fail_Generic_bin;
+		LeafBin b90940553_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_LTTCCBBANALOG_X_X_X_X_TEMPREAD_CORE_LTTC_0    90940553	: "b90940553_fail_PTH_DTS_TOP_DTS_TOP_CTV_K_LTTCCBBANALOG_X_X_X_X_TEMPREAD_CORE_LTTC_0",    b9405;
+		LeafBin b90980023_fail_PTH_DTS_TOP_SHARED_BIN_n1    90980023	: "b90980023_fail_PTH_DTS_TOP_SHARED_BIN_n1",    b9800_fail_FAIL_SYSTEM_SOFTWARE;
+		LeafBin b90986402_fail_PTH_DTS_TOP_SHARED_BIN_n1                                     90986402 : "b90986402_fail_PTH_DTS_TOP_SHARED_BIN_n1"                                    , b9864_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90986430_fail_PTH_DTS_TOP_SHARED_BIN_n1                                     90986430 : "b90986430_fail_PTH_DTS_TOP_SHARED_BIN_n1"                                    , b9864_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90986432_fail_PTH_DTS_TOP_SHARED_BIN_n1                                     90986432 : "b90986432_fail_PTH_DTS_TOP_SHARED_BIN_n1"                                    , b9864_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90986434_fail_PTH_DTS_TOP_SHARED_BIN_n1                                     90986434 : "b90986434_fail_PTH_DTS_TOP_SHARED_BIN_n1"                                    , b9864_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90986436_fail_PTH_DTS_TOP_SHARED_BIN_n1                                     90986436 : "b90986436_fail_PTH_DTS_TOP_SHARED_BIN_n1"                                    , b9864_fail_FAIL_SYSTEM_SOFTWARE;
+		LeafBin b90986606_fail_PTH_DTS_TOP_SHARED_BIN_n1                                     90986606 : "b90986606_fail_PTH_DTS_TOP_SHARED_BIN_n1"                                    , b9866_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90986607_fail_PTH_DTS_TOP_SHARED_BIN_n1                                     90986607 : "b90986607_fail_PTH_DTS_TOP_SHARED_BIN_n1"                                    , b9866_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90986617_fail_PTH_DTS_TOP_SHARED_BIN_n1                                     90986617 : "b90986617_fail_PTH_DTS_TOP_SHARED_BIN_n1"                                    , b9866_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90986618_fail_PTH_DTS_TOP_SHARED_BIN_n1                                     90986618 : "b90986618_fail_PTH_DTS_TOP_SHARED_BIN_n1"                                    , b9866_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90986619_fail_PTH_DTS_TOP_SHARED_BIN_n1                                     90986619 : "b90986619_fail_PTH_DTS_TOP_SHARED_BIN_n1"                                    , b9866_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90986620_fail_PTH_DTS_TOP_SHARED_BIN_n1                                     90986620 : "b90986620_fail_PTH_DTS_TOP_SHARED_BIN_n1"                                    , b9866_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90986621_fail_PTH_DTS_TOP_SHARED_BIN_n1                                     90986621 : "b90986621_fail_PTH_DTS_TOP_SHARED_BIN_n1"                                    , b9866_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90986622_fail_PTH_DTS_TOP_SHARED_BIN_n1                                     90986622 : "b90986622_fail_PTH_DTS_TOP_SHARED_BIN_n1"                                    , b9866_fail_FAIL_SYSTEM_SOFTWARE;
+		LeafBin b90990023_fail_PTH_DTS_TOP_SHARED_BIN_n2    90990023	: "b90990023_fail_PTH_DTS_TOP_SHARED_BIN_n2",    b9900_fail_FAIL_DPS_ALARM;
+		LeafBin b90996402_fail_PTH_DTS_TOP_SHARED_BIN_n2                                     90996402 : "b90996402_fail_PTH_DTS_TOP_SHARED_BIN_n2"                                    , b9964_fail_FAIL_DPS_ALARM;
+        LeafBin b90996440_fail_PTH_DTS_TOP_SHARED_BIN_n2                                     90996440 : "b90996440_fail_PTH_DTS_TOP_SHARED_BIN_n2"                                    , b9964_fail_FAIL_DPS_ALARM;
+        LeafBin b90996441_fail_PTH_DTS_TOP_SHARED_BIN_n2                                     90996441 : "b90996441_fail_PTH_DTS_TOP_SHARED_BIN_n2"                                    , b9964_fail_FAIL_DPS_ALARM;
+        LeafBin b90996442_fail_PTH_DTS_TOP_SHARED_BIN_n2                                     90996442 : "b90996442_fail_PTH_DTS_TOP_SHARED_BIN_n2"                                    , b9964_fail_FAIL_DPS_ALARM;
+        LeafBin b90996443_fail_PTH_DTS_TOP_SHARED_BIN_n2                                     90996443 : "b90996443_fail_PTH_DTS_TOP_SHARED_BIN_n2"                                    , b9964_fail_FAIL_DPS_ALARM;
+        LeafBin b90996456_fail_PTH_DTS_TOP_SHARED_BIN_n2                                     90996456 : "b90996456_fail_PTH_DTS_TOP_SHARED_BIN_n2"                                    , b9964_fail_FAIL_DPS_ALARM;
+        LeafBin b90996457_fail_PTH_DTS_TOP_SHARED_BIN_n2                                     90996457 : "b90996457_fail_PTH_DTS_TOP_SHARED_BIN_n2"                                    , b9964_fail_FAIL_DPS_ALARM;
+        LeafBin b90996458_fail_PTH_DTS_TOP_SHARED_BIN_n2                                     90996458 : "b90996458_fail_PTH_DTS_TOP_SHARED_BIN_n2"                                    , b9964_fail_FAIL_DPS_ALARM;
+        LeafBin b90996459_fail_PTH_DTS_TOP_SHARED_BIN_n2                                     90996459 : "b90996459_fail_PTH_DTS_TOP_SHARED_BIN_n2"                                    , b9964_fail_FAIL_DPS_ALARM;
+        LeafBin b90996460_fail_PTH_DTS_TOP_SHARED_BIN_n2                                     90996460 : "b90996460_fail_PTH_DTS_TOP_SHARED_BIN_n2"                                    , b9964_fail_FAIL_DPS_ALARM;
+        LeafBin b90996461_fail_PTH_DTS_TOP_SHARED_BIN_n2                                     90996461 : "b90996461_fail_PTH_DTS_TOP_SHARED_BIN_n2"                                    , b9964_fail_FAIL_DPS_ALARM;
+        LeafBin b90996464_fail_PTH_DTS_TOP_SHARED_BIN_n2                                     90996464 : "b90996464_fail_PTH_DTS_TOP_SHARED_BIN_n2"                                    , b9964_fail_FAIL_DPS_ALARM;
+        LeafBin b90996465_fail_PTH_DTS_TOP_SHARED_BIN_n2                                     90996465 : "b90996465_fail_PTH_DTS_TOP_SHARED_BIN_n2"                                    , b9964_fail_FAIL_DPS_ALARM;
+		
+    }
+
+}

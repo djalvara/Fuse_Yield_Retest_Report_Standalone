@@ -1,0 +1,29 @@
+Version 1.0;
+
+SubBinDefs
+{
+    BinGroup HardBins
+    {
+        Bin b09_FAIL_LEAKAGE 09 : "b09_FAIL_LEAKAGE", Fail;
+    }
+
+    BinGroup SoftBins
+    {
+        Bin b0900_fail_Generic_bin          0900 : "b0900_fail_Generic_bin"         , b09_FAIL_LEAKAGE;
+        Bin b0901_fail_LEAKAGE_MIO          0901 : "b0901_fail_LEAKAGE_MIO"         , b09_FAIL_LEAKAGE;
+        Bin b0950_fail_Generic_bin          0950 : "b0950_fail_Generic_bin"         , b09_FAIL_LEAKAGE;
+        Bin b9809_fail_FAIL_SYSTEM_SOFTWARE 9809 : "b9809_fail_FAIL_SYSTEM_SOFTWARE", b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9909_fail_FAIL_DPS_ALARM       9909 : "b9909_fail_FAIL_DPS_ALARM"      , b99_FAIL_HARDWARE_ERROR;
+        }
+
+    BinGroup DataBins
+    {
+        LeafBin b90095025_fail_SIO_LEAKAGE_CBB_LKG_X_TRIGGEREDDC_K_ENDCBB_TAP_X_VMAX_X_CDLHI_VSIM_0 90095025 : "b90095025_fail_SIO_LEAKAGE_CBB_LKG_X_TRIGGEREDDC_K_ENDCBB_TAP_X_VMAX_X_CDLHI_VSIM_0", b0950_fail_Generic_bin;
+        LeafBin b90095066_fail_SIO_LEAKAGE_CBB_LKG_X_TRIGGEREDDC_K_ENDCBB_TAP_X_VMAX_X_CDLHI_VSIM_5 90095066 : "b90095066_fail_SIO_LEAKAGE_CBB_LKG_X_TRIGGEREDDC_K_ENDCBB_TAP_X_VMAX_X_CDLHI_VSIM_5", b0950_fail_Generic_bin;
+        LeafBin b90095072_fail_SIO_LEAKAGE_CBB_LKG_X_TRIGGEREDDC_K_ENDCBB_TAP_X_VMAX_X_CDLLO_VSIM_0 90095072 : "b90095072_fail_SIO_LEAKAGE_CBB_LKG_X_TRIGGEREDDC_K_ENDCBB_TAP_X_VMAX_X_CDLLO_VSIM_0", b0950_fail_Generic_bin;
+        LeafBin b90095077_fail_SIO_LEAKAGE_CBB_LKG_X_TRIGGEREDDC_K_ENDCBB_TAP_X_VMAX_X_CDLLO_VSIM_5 90095077 : "b90095077_fail_SIO_LEAKAGE_CBB_LKG_X_TRIGGEREDDC_K_ENDCBB_TAP_X_VMAX_X_CDLLO_VSIM_5", b0950_fail_Generic_bin;
+        LeafBin b90980901_fail_SIO_LEAKAGE_CBB_SHARED_BIN_n1                                        90980901 : "b90980901_fail_SIO_LEAKAGE_CBB_SHARED_BIN_n1"                                       , b9809_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90990901_fail_SIO_LEAKAGE_CBB_SHARED_BIN_n2                                        90990901 : "b90990901_fail_SIO_LEAKAGE_CBB_SHARED_BIN_n2"                                       , b9909_fail_FAIL_DPS_ALARM;
+    }
+
+}

@@ -1,0 +1,37 @@
+Version 1.0;
+
+SubBinDefs
+{
+    BinGroup HardBins
+    {
+        Bin b27_FAIL_FIVR                    27 : "b27_FAIL_FIVR"                   , Fail;
+        Bin b97_FAIL_UEI_COMMUNICATION_ALARM 97 : "b97_FAIL_UEI_COMMUNICATION_ALARM", Fail;
+    }
+
+    BinGroup SoftBins
+    {
+        Bin b2791                                2791 : "b2791"                           , b27_FAIL_FIVR;
+        Bin b9727_fail_PTH_TJ_IMON               9727 : "b9727_fail_PTH_TJ_IMON"          , b97_FAIL_UEI_COMMUNICATION_ALARM;
+        Bin b9827_fail_FAIL_SYSTEM_SOFTWARE      9827 : "b9827_fail_FAIL_SYSTEM_SOFTWARE" , b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9834_fail_FAIL_SYSTEM_SOFTWARE      9834 : "b9834_fail_FAIL_SYSTEM_SOFTWARE" , b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9835_fail_FAIL_SYSTEM_SOFTWARE      9835 : "b9835_fail_FAIL_SYSTEM_SOFTWARE" , b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9866_fail_FAIL_SYSTEM_SOFTWARE      9866 : "b9866_fail_FAIL_SYSTEM_SOFTWARE" , b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9867_fail_FAIL_SYSTEM_SOFTWARE      9867 : "b9867_fail_FAIL_SYSTEM_SOFTWARE" , b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9868_fail_FAIL_SYSTEM_SOFTWARE      9868 : "b9868_fail_FAIL_SYSTEM_SOFTWARE" , b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9869_fail_FAIL_SYSTEM_SOFTWARE      9869 : "b9869_fail_FAIL_SYSTEM_SOFTWARE" , b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9927                                9927 : "b9927"                           , b99_FAIL_HARDWARE_ERROR;
+        Bin b9931_fail_FAIL_DPS_ALARM            9931 : "b9931_fail_FAIL_DPS_ALARM"       , b99_FAIL_HARDWARE_ERROR;
+        Bin b9932_fail_FAIL_DPS_ALARM            9932 : "b9932_fail_FAIL_DPS_ALARM"       , b99_FAIL_HARDWARE_ERROR;
+        Bin b9966_fail_FAIL_DPS_ALARM            9966 : "b9966_fail_FAIL_DPS_ALARM"       , b99_FAIL_HARDWARE_ERROR;
+        Bin b9967_fail_FAIL_DPS_ALARM            9967 : "b9967_fail_FAIL_DPS_ALARM"       , b99_FAIL_HARDWARE_ERROR;
+        Bin b9968_FAIL_DPS_OVERVOLTAGE_ALARM     9968 : "b9968_FAIL_DPS_OVERVOLTAGE_ALARM", b99_FAIL_HARDWARE_ERROR;
+    }
+
+    BinGroup DataBins
+    {
+		LeafBin b90982702_fail_PTH_IMON_PKG_SHARED_BIN_n1    90982702	: "b90982702_fail_PTH_IMON_PKG_SHARED_BIN_n1",    b9827_fail_FAIL_SYSTEM_SOFTWARE;
+		LeafBin b90992702_fail_PTH_IMON_PKG_SHARED_BIN_n2    90992702	: "b90992702_fail_PTH_IMON_PKG_SHARED_BIN_n2",    b9927;
+		
+    }
+
+}

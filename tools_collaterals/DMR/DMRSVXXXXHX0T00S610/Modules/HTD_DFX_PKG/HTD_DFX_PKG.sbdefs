@@ -1,0 +1,32 @@
+Version 1.0;
+
+SubBinDefs
+{
+    BinGroup HardBins
+    {
+        Bin b35_FAIL_DFX_TAP 35 : "b35_FAIL_DFX_TAP", Fail;
+        Bin b52_FAIL_DFX_STF 52 : "b52_FAIL_DFX_STF", Fail;
+    }
+
+    BinGroup SoftBins
+    {
+        Bin b3569_fail_HTD_DFX_CBB_IJTAG_CONTINUITY_PH2_CORE     3569 : "b3569_fail_HTD_DFX_CBB_IJTAG_CONTINUITY_PH2_CORE", b35_FAIL_DFX_TAP;
+        Bin b5201_fail_HTD_DFX_IMH_STF_CONTINUITY                5201 : "b5201_fail_HTD_DFX_IMH_STF_CONTINUITY"           , b52_FAIL_DFX_STF;
+        Bin b9835_fail_FAIL_SYSTEM_SOFTWARE                      9835 : "b9835_fail_FAIL_SYSTEM_SOFTWARE"                 , b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9850_fail_FAIL_SYSTEM_SOFTWARE                      9850 : "b9850_fail_FAIL_SYSTEM_SOFTWARE"                 , b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9935_fail_FAIL_DPS_ALARM                            9935 : "b9935_fail_FAIL_DPS_ALARM"                       , b99_FAIL_HARDWARE_ERROR;
+    }
+
+    BinGroup DataBins
+    {
+        LeafBin b90356901_fail_HTD_DFX_PKG_DFX_PKG_FUNC_E_START_X_X_X_X_DFT_ALL_FABRICS_0 90356901 : "b90356901_fail_HTD_DFX_PKG_DFX_PKG_FUNC_E_START_X_X_X_X_DFT_ALL_FABRICS_0", b3569_fail_HTD_DFX_CBB_IJTAG_CONTINUITY_PH2_CORE;
+        LeafBin b90356902_fail_HTD_DFX_PKG_DFX_PKG_FUNC_E_START_X_X_X_X_DFT_ALL_FABRICS_2 90356902 : "b90356902_fail_HTD_DFX_PKG_DFX_PKG_FUNC_E_START_X_X_X_X_DFT_ALL_FABRICS_2", b3569_fail_HTD_DFX_CBB_IJTAG_CONTINUITY_PH2_CORE;
+        LeafBin b90520101_fail_HTD_DFX_PKG_DFX_PKG_SHMOO_E_START_X_X_X_X_DEBUG_S_0        90520101 : "b90520101_fail_HTD_DFX_PKG_DFX_PKG_SHMOO_E_START_X_X_X_X_DEBUG_S_0"       , b5201_fail_HTD_DFX_IMH_STF_CONTINUITY;
+        LeafBin b90520102_fail_HTD_DFX_PKG_DFX_PKG_SHMOO_E_START_X_X_X_X_DEBUG_S_2        90520102 : "b90520102_fail_HTD_DFX_PKG_DFX_PKG_SHMOO_E_START_X_X_X_X_DEBUG_S_2"       , b5201_fail_HTD_DFX_IMH_STF_CONTINUITY;
+        LeafBin b90983502_fail_HTD_DFX_PKG_SHARED_BIN_n1                                  90983502 : "b90983502_fail_HTD_DFX_PKG_SHARED_BIN_n1"                                 , b9835_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90985035_fail_HTD_DFX_PKG_DFX_PKG_DEDC_E_START_X_X_X_X_ALL_0             90985035 : "b90985035_fail_HTD_DFX_PKG_DFX_PKG_DEDC_E_START_X_X_X_X_ALL_0"            , b9850_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90985036_fail_HTD_DFX_PKG_DFX_PKG_DEDC_E_START_X_X_X_X_ALL_2             90985036 : "b90985036_fail_HTD_DFX_PKG_DFX_PKG_DEDC_E_START_X_X_X_X_ALL_2"            , b9850_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90993502_fail_HTD_DFX_PKG_SHARED_BIN_n2                                  90993502 : "b90993502_fail_HTD_DFX_PKG_SHARED_BIN_n2"                                 , b9935_fail_FAIL_DPS_ALARM;
+    }
+
+}

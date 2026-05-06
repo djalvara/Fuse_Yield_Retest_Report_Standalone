@@ -1,0 +1,26 @@
+Version 1.0;
+
+SubBinDefs
+{
+    BinGroup HardBins
+    {
+        Bin b69_FAIL_UNASSIGNED_PORT_ERROR 69 : "b69_FAIL_UNASSIGNED_PORT_ERROR", Fail;
+        Bin b90_FAIL_USER_FUNC             90 : "b90_FAIL_USER_FUNC"            , Fail;
+        Bin b94_FAIL_CL_OR_QA_DOWNBIN_2    94 : "b94_FAIL_CL_OR_QA_DOWNBIN_2"   , Fail;
+    }
+    BinGroup SoftBins
+    {
+        Bin b9000_fail_TPI_VCC_PWRDOWN      9000 : "b9000_fail_TPI_VCC_PWRDOWN"     , b90_FAIL_USER_FUNC;
+        Bin b9890_fail_FAIL_SYSTEM_SOFTWARE 9890 : "b9890_fail_FAIL_SYSTEM_SOFTWARE", b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9990_fail_FAIL_DPS_ALARM       9990 : "b9990_fail_FAIL_DPS_ALARM"      , b99_FAIL_HARDWARE_ERROR;
+    }
+
+    BinGroup DataBins
+    {
+        LeafBin b90900055_fail_TPI_VP_TPI_X_PREDICT_K_SRHCBBIAF2_X_X_X_X_VP_0  90900055 : "b90900055_fail_TPI_VP_TPI_X_PREDICT_K_SRHCBBIAF2_X_X_X_X_VP_0" , b9000_fail_TPI_VCC_PWRDOWN;
+        LeafBin b90900090_fail_TPI_VP_TPI_X_PREDICT_K_SRHCBBIAF3_X_X_X_X_VP_0 90900090 : "b90900090_fail_TPI_VP_TPI_X_PREDICT_K_SRHCBBIAF3_X_X_X_X_VP_0", b9000_fail_TPI_VCC_PWRDOWN;
+        LeafBin b90989014_fail_TPI_VP_SHARED_BIN_n1                           90989014 : "b90989014_fail_TPI_VP_SHARED_BIN_n1"                          , b9890_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90999014_fail_TPI_VP_SHARED_BIN_n2                           90999014 : "b90999014_fail_TPI_VP_SHARED_BIN_n2"                          , b9990_fail_FAIL_DPS_ALARM;
+     }
+
+}

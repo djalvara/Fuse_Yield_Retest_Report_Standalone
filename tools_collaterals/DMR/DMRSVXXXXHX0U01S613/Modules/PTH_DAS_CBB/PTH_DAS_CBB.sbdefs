@@ -1,0 +1,25 @@
+Version 1.0;
+
+SubBinDefs
+{
+    BinGroup HardBins
+    {
+        Bin b38_FAIL_IDV 38 : "b38_FAIL_IDV", Fail;
+    }
+
+    BinGroup SoftBins
+    {
+        Bin b3800                            3800 : "b3800"                           , b38_FAIL_IDV;
+        Bin b9821_fail_FAIL_SYSTEM_SOFTWARE  9821 : "b9821_fail_FAIL_SYSTEM_SOFTWARE" , b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9865_fail_FAIL_SYSTEM_SOFTWARE  9865 : "b9865_fail_FAIL_SYSTEM_SOFTWARE" , b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        #Bin b9918_fail_FAIL_DPS_ALARM        9918 : "b9918_fail_FAIL_DPS_ALARM"       , b99_FAIL_HARDWARE_ERROR;
+        Bin b9965_fail_FAIL_DPS_ALARM        9965 : "b9965_fail_FAIL_DPS_ALARM"       , b99_FAIL_HARDWARE_ERROR;
+    }
+
+    BinGroup DataBins
+    {
+		LeafBin b90986501_fail_PTH_DAS_CBB_SHARED_BIN_n1    90986501	: "b90986501_fail_PTH_DAS_CBB_SHARED_BIN_n1",    b9865_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90996501_fail_PTH_DAS_CBB_SHARED_BIN_n2    90996501	: "b90996501_fail_PTH_DAS_CBB_SHARED_BIN_n2",    b9965_fail_FAIL_DPS_ALARM;        
+    }
+
+}

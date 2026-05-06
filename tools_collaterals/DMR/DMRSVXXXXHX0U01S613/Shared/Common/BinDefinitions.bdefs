@@ -1,0 +1,35 @@
+Version 1.0;
+
+BinDefs
+{
+    BinGroup PassFailBins
+    {
+        Bin Fail 1 : "Count of Failing Devices";
+        Bin Pass 0 : "Count of Passing Devices";
+    }
+
+    BinGroup HardBins
+    {
+        Bin b00_FAIL_DUMMY                      00 : "b00_FAIL_DUMMY"                     , Fail;
+        Bin b94_FAIL_CL_OR_QA_DOWNBIN_2         94 : "b94_FAIL_CL_OR_QA_DOWNBIN_2"        , Fail;
+        Bin b97_FAIL_UEI_COMMUNICATION_ALARM    97 : "b97_FAIL_UEI_COMMUNICATION_ALARM"   , Fail;
+        Bin b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN 98 : "b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN", Fail;
+        Bin b99_FAIL_HARDWARE_ERROR             99 : "b99_FAIL_HARDWARE_ERROR"            , Fail;
+    }
+
+    BinGroup SoftBins
+    {
+        Bin b0000_Fail_Dummy                     0000 : "b0000_Fail_Dummy"                    , b00_FAIL_DUMMY;
+        Bin b9800_fail_FAIL_SYSTEM_SOFTWARE      9800 : "b9800_fail_FAIL_SYSTEM_SOFTWARE"     , b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9801_FAIL_TESTCLASS_EXCEPTION_ERROR 9801 : "b9801_FAIL_TESTCLASS_EXCEPTION_ERROR", b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9900_fail_FAIL_DPS_ALARM            9900 : "b9900_fail_FAIL_DPS_ALARM"           , b99_FAIL_HARDWARE_ERROR;
+        Bin b9901_fail_FAIL_DPS_ALARM            9901 : "b9901_fail_FAIL_DPS_ALARM"           , b99_FAIL_HARDWARE_ERROR;
+    }
+
+    BinGroup DataBins
+    {        
+        LeafBin b90980000_fail_FAIL_SYSTEM_SOFTWARE                                                     90980000 : "b90980000_fail_FAIL_SYSTEM_SOFTWARE"                                                    , b9800_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90990000_fail_FAIL_HARDWARE_ERROR                                                      90990000 : "b90990000_fail_FAIL_HARDWARE_ERROR"                                                     , b9900_fail_FAIL_DPS_ALARM;
+    }
+
+}

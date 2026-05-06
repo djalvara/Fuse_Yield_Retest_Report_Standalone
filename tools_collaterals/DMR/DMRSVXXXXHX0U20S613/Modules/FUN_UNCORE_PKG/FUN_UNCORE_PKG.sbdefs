@@ -1,0 +1,27 @@
+Version 1.0;
+
+SubBinDefs
+{
+    BinGroup HardBins
+    {
+        Bin b45_FAIL_UNCORE 45 : "b45_FAIL_UNCORE", Fail;
+    }
+
+    BinGroup SoftBins
+    {
+        Bin b4521                               4521 : "b4521"                          , b45_FAIL_UNCORE;
+        Bin b9838_fail_FAIL_SYSTEM_SOFTWARE     9838 : "b9838_fail_FAIL_SYSTEM_SOFTWARE", b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9938_fail_FAIL_DPS_ALARM           9938 : "b9938_fail_FAIL_DPS_ALARM"      , b99_FAIL_HARDWARE_ERROR;
+    }
+
+    BinGroup DataBins
+    {
+        LeafBin b90452100_fail_FUN_UNCORE_PKG_UNCORE_CBB_AUX_E_ENDPKG_X_RING_X_F1_2PASSESPASSINGDCMMONOBABY_0    90452100 : "b90452100_fail_FUN_UNCORE_PKG_UNCORE_CBB_AUX_E_ENDPKG_X_RING_X_F1_2PASSESPASSINGDCMMONOBABY_0"   , b4521;
+        LeafBin b90452101_fail_FUN_UNCORE_PKG_UNCORE_CBB_AUX_E_ENDPKG_X_RING_X_F2_2PASSESPASSINGDCMMONOUUFC_0    90452101 : "b90452101_fail_FUN_UNCORE_PKG_UNCORE_CBB_AUX_E_ENDPKG_X_RING_X_F2_2PASSESPASSINGDCMMONOUUFC_0"   , b4521;
+        LeafBin b90452105_fail_FUN_UNCORE_PKG_UNCORE_CBB_AUX_E_ENDPKG_X_RING_X_F2_2PASSESPASSINGDCMMONOMPMWRRD_0 90452105 : "b90452105_fail_FUN_UNCORE_PKG_UNCORE_CBB_AUX_E_ENDPKG_X_RING_X_F2_2PASSESPASSINGDCMMONOMPMWRRD_0", b4521;
+        #LeafBin b90452161_fail_FUN_UNCORE_CBB_UNCORE_CBB_AUX_E_ENDCBB_X_RING_X_F1_PASS1_0                        90452161 : "b90452161_fail_FUN_UNCORE_CBB_UNCORE_CBB_AUX_E_ENDCBB_X_RING_X_F1_PASS1_0"                       , b4521;
+        LeafBin b90983848_fail_FUN_UNCORE_PKG_SHARED_BIN_n1                                                      90983848 : "b90983848_fail_FUN_UNCORE_PKG_SHARED_BIN_n1"                                                     , b9838_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90993848_fail_FUN_UNCORE_PKG_SHARED_BIN_n2                                                      90993848 : "b90993848_fail_FUN_UNCORE_PKG_SHARED_BIN_n2"                                                     , b9938_fail_FAIL_DPS_ALARM;
+    }
+
+}

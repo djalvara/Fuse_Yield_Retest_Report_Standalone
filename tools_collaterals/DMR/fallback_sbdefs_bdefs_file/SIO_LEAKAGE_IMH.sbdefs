@@ -1,0 +1,33 @@
+Version 1.0;
+
+SubBinDefs
+{
+    BinGroup HardBins
+    {
+        Bin b09_FAIL_LEAKAGE                    09 : "b09_FAIL_LEAKAGE"                   , Fail;
+        Bin b11_FAIL_MIO_DDR                    11 : "b11_FAIL_MIO_DDR"                   , Fail;
+        Bin b13_FAIL_VOX                        13 : "b13_FAIL_VOX"                       , Fail;
+        Bin b25_FAIL_SIO_BSCAN                  25 : "b25_FAIL_SIO_BSCAN"                 , Fail;
+        Bin b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN 98 : "b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN", Fail;
+        Bin b99_FAIL_HARDWARE_ERROR             99 : "b99_FAIL_HARDWARE_ERROR"            , Fail;
+    }
+
+    BinGroup SoftBins
+    {
+        Bin b0900_fail_Generic_bin               0900 : "b0900_fail_Generic_bin"              , b09_FAIL_LEAKAGE;
+        Bin b0950_fail_Generic_bin               0950 : "b0950_fail_Generic_bin"              , b09_FAIL_LEAKAGE;
+        Bin b9809_fail_FAIL_SYSTEM_SOFTWARE      9809 : "b9809_fail_FAIL_SYSTEM_SOFTWARE"     , b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9909_fail_FAIL_DPS_ALARM            9909 : "b9909_fail_FAIL_DPS_ALARM"           , b99_FAIL_HARDWARE_ERROR;
+    }
+
+    BinGroup DataBins
+    {
+        LeafBin b90095019_fail_SIO_LEAKAGE_IMH_LKG_X_TRIGGEREDDC_K_ENDIMH_TAP_X_VMAX_X_CDLHI_GPIOVSIM_0 90095019 : "b90095019_fail_SIO_LEAKAGE_IMH_LKG_X_TRIGGEREDDC_K_ENDIMH_TAP_X_VMAX_X_CDLHI_GPIOVSIM_0", b0950_fail_Generic_bin;
+        LeafBin b90095020_fail_SIO_LEAKAGE_IMH_LKG_X_TRIGGEREDDC_K_ENDIMH_TAP_X_VMAX_X_CDLHI_GPIOVSIM_5 90095020 : "b90095020_fail_SIO_LEAKAGE_IMH_LKG_X_TRIGGEREDDC_K_ENDIMH_TAP_X_VMAX_X_CDLHI_GPIOVSIM_5", b0950_fail_Generic_bin;
+        LeafBin b90095021_fail_SIO_LEAKAGE_IMH_LKG_X_TRIGGEREDDC_K_ENDIMH_TAP_X_VMAX_X_CDLLO_GPIOVSIM_0 90095021 : "b90095021_fail_SIO_LEAKAGE_IMH_LKG_X_TRIGGEREDDC_K_ENDIMH_TAP_X_VMAX_X_CDLLO_GPIOVSIM_0", b0950_fail_Generic_bin;
+        LeafBin b90095023_fail_SIO_LEAKAGE_IMH_LKG_X_TRIGGEREDDC_K_ENDIMH_TAP_X_VMAX_X_CDLLO_GPIOVSIM_5 90095023 : "b90095023_fail_SIO_LEAKAGE_IMH_LKG_X_TRIGGEREDDC_K_ENDIMH_TAP_X_VMAX_X_CDLLO_GPIOVSIM_5", b0950_fail_Generic_bin;
+        LeafBin b90980902_fail_SIO_LEAKAGE_IMH_SHARED_BIN_n1                                            90980902 : "b90980902_fail_SIO_LEAKAGE_IMH_SHARED_BIN_n1"                                           , b9809_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90990902_fail_SIO_LEAKAGE_IMH_SHARED_BIN_n2                                            90990902 : "b90990902_fail_SIO_LEAKAGE_IMH_SHARED_BIN_n2"                                           , b9909_fail_FAIL_DPS_ALARM;
+    }
+
+}

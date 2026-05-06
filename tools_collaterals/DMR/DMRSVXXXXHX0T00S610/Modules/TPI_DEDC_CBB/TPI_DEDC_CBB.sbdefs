@@ -1,0 +1,24 @@
+Version 1.0;
+
+SubBinDefs
+{
+    BinGroup HardBins
+    {
+        Bin b01_PASS_CMTTRAY_1             01 : "b01_PASS_CMTTRAY_1"            , Pass;
+        Bin b69_FAIL_UNASSIGNED_PORT_ERROR 69 : "b69_FAIL_UNASSIGNED_PORT_ERROR", Fail;
+        Bin b90_FAIL_USER_FUNC             90 : "b90_FAIL_USER_FUNC"            , Fail;
+        Bin b94_FAIL_CL_OR_QA_DOWNBIN_2    94 : "b94_FAIL_CL_OR_QA_DOWNBIN_2"   , Fail;
+    }
+
+    BinGroup SoftBins
+    {
+        Bin b9890_fail_FAIL_SYSTEM_SOFTWARE 9890 : "b9890_fail_FAIL_SYSTEM_SOFTWARE", b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9990_fail_FAIL_DPS_ALARM       9990 : "b9990_fail_FAIL_DPS_ALARM"      , b99_FAIL_HARDWARE_ERROR;
+    }
+	BinGroup DataBins
+	{
+		LeafBin b90989011_fail_TPI_DEDC_CBB_SHARED_BIN_n1    90989011	: "b90989011_fail_TPI_DEDC_CBB_SHARED_BIN_n1",    b9890_fail_FAIL_SYSTEM_SOFTWARE;
+		LeafBin b90999011_fail_TPI_DEDC_CBB_SHARED_BIN_n2    90999011	: "b90999011_fail_TPI_DEDC_CBB_SHARED_BIN_n2",    b9990_fail_FAIL_DPS_ALARM;
+	}
+
+}

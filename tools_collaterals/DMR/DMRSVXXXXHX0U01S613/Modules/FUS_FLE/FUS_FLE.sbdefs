@@ -1,0 +1,20 @@
+Version 1.0;
+
+SubBinDefs
+{
+    BinGroup HardBins
+    {
+        Bin b31_FAIL_FUSE_RW 31 : "b31_FAIL_FUSE_RW", Fail;        
+    }
+
+    BinGroup SoftBins
+    {
+        Bin b3156_fail_FUS_FLE_GENERAL 3156 : "b3156_fail_FUS_FLE_GENERAL", b31_FAIL_FUSE_RW;        
+    }
+    
+    BinGroup DataBins
+	{
+		LeafBin b90315699_FUSE_FLE_DUMMY_BIN    90315699	: "b90315699_FUSE_FLE_DUMMY_BIN",    b3156_fail_FUS_FLE_GENERAL;
+	}
+
+}

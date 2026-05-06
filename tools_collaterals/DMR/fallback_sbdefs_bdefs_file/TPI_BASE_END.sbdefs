@@ -1,0 +1,56 @@
+Version 1.0;
+
+SubBinDefs
+{
+    BinGroup HardBins
+    {
+        Bin b90_FAIL_USER_FUNC          90 : "b90_FAIL_USER_FUNC"         , Fail;
+        Bin b92_TPI_BASE_END            92 : "b92_TPI_BASE_END"           , Fail;
+        Bin b93_FAIL_CL_OR_QA_DOWNBIN_1 93 : "b93_FAIL_CL_OR_QA_DOWNBIN_1", Fail;
+        Bin b94_FAIL_CL_OR_QA_DOWNBIN_2 94 : "b94_FAIL_CL_OR_QA_DOWNBIN_2", Fail;
+    }
+
+    BinGroup SoftBins
+    {
+		Bin b9014_fail_TPI_BASE_SRH                       9014 : "b9014_fail_TPI_BASE_SRH"                  , b90_FAIL_USER_FUNC;
+        Bin b9069_fail_TPI_DOWNSTREAM_SSID                9069 : "b9069_fail_TPI_DOWNSTREAM_SSID"           , b90_FAIL_USER_FUNC;
+        Bin b9200                                         9200 : "b9200"                                    , b92_TPI_BASE_END;
+        Bin b9201_fail_TPI_BASE_END_BEGIN                 9201 : "b9201_fail_TPI_BASE_END_BEGIN"            , b92_TPI_BASE_END;
+        Bin b9202_fail_TPI_BASE_END_END                   9202 : "b9202_fail_TPI_BASE_END_END"              , b92_TPI_BASE_END;
+        Bin b9204_fail_TPI_BASE_END_START                 9204 : "b9204_fail_TPI_BASE_END_START"            , b92_TPI_BASE_END;
+        Bin b9205_fail_TPI_BASE_END_TESTPLANSTARTFLOW     9205 : "b9205_fail_TPI_BASE_END_TESTPLANSTARTFLOW", b92_TPI_BASE_END;
+        Bin b9206_fail_TPI_BASE_END_TESTPLANENDFLOW       9206 : "b9206_fail_TPI_BASE_END_TESTPLANENDFLOW"  , b92_TPI_BASE_END;
+        Bin b9300_fail_TPI_BASE_BCKGRNDTEST               9300 : "b9300_fail_TPI_BASE_BCKGRNDTEST"          , b93_FAIL_CL_OR_QA_DOWNBIN_1;
+        Bin b9403_fail_TPI_BASE_END_LTTC                  9403 : "b9403_fail_TPI_BASE_END_LTTC"             , b94_FAIL_CL_OR_QA_DOWNBIN_2;
+        Bin b9800_fail_FAIL_SYSTEM_SOFTWARE               9800 : "b9800_fail_FAIL_SYSTEM_SOFTWARE"          , b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9890_fail_FAIL_SYSTEM_SOFTWARE               9890 : "b9890_fail_FAIL_SYSTEM_SOFTWARE"          , b98_FAIL_SOFTWARE_ALARM_OR_ZERO_BIN;
+        Bin b9900_fail_FAIL_DPS_ALARM                     9900 : "b9900_fail_FAIL_DPS_ALARM"                , b99_FAIL_HARDWARE_ERROR;
+        Bin b9990_fail_FAIL_DPS_ALARM                     9990 : "b9990_fail_FAIL_DPS_ALARM"                , b99_FAIL_HARDWARE_ERROR;
+    }
+
+    BinGroup DataBins
+    {
+		LeafBin b90901408_fail_TPI_BASE_END_BYPASS_X_AUX_K_END_X_X_X_X_QUALESD_0                                         90901408	: "b90901408_fail_TPI_BASE_END_BYPASS_X_AUX_K_END_X_X_X_X_QUALESD_0",    b9014_fail_TPI_BASE_SRH;
+        LeafBin b90920000_fail_TPI_BASE_END_DFF_X_GETSETDFF_E_START_X_X_X_X_DEBUG_GETSET_IDV_0                           90920000 : "b90920000_fail_TPI_BASE_END_DFF_X_GETSETDFF_E_START_X_X_X_X_DEBUG_GETSET_IDV_0"                          , b9200;
+        LeafBin b90920001_fail_TPI_BASE_END_CTRL_X_SAMPLERATE_K_TESTPLANSTARTFLOW_X_X_X_X_TT_PROFILE_0                   90920001 : "b90920001_fail_TPI_BASE_END_CTRL_X_SAMPLERATE_K_TESTPLANSTARTFLOW_X_X_X_X_TT_PROFILE_0"                  , b9200;
+        LeafBin b90920002_fail_TPI_BASE_END_PERFORMANCEPROFILE_X_PERFORMANCEPROFILE_K_TESTPLANSTARTFLOW_X_X_X_X_TT_OFF_0 90920002 : "b90920002_fail_TPI_BASE_END_PERFORMANCEPROFILE_X_PERFORMANCEPROFILE_K_TESTPLANSTARTFLOW_X_X_X_X_TT_OFF_0", b9200;
+        LeafBin b90920004_fail_TPI_BASE_END_DFF_X_GETSETDFF_E_START_X_X_X_X_DEBUG_GETSET_IDV_0                           90920004 : "b90920004_fail_TPI_BASE_END_DFF_X_GETSETDFF_E_START_X_X_X_X_DEBUG_GETSET_IDV_0"                          , b9200;
+        LeafBin b90920007_fail_TPI_BASE_END_IDV_X_WRITEIDVSORT_E_START_X_X_X_X_IDV_0                                     90920007 : "b90920007_fail_TPI_BASE_END_IDV_X_WRITEIDVSORT_E_START_X_X_X_X_IDV_0"                                    , b9200;
+        LeafBin b90920101_fail_TPI_BASE_END_AHMTFORK_X_AUX_K_BGNPKG_X_X_X_X_X_0                                          90920101 : "b90920101_fail_TPI_BASE_END_AHMTFORK_X_AUX_K_BGNPKG_X_X_X_X_X_0"                                         , b9201_fail_TPI_BASE_END_BEGIN;
+        LeafBin b90920102_fail_TPI_BASE_END_BYPASS_X_AUX_K_BGNPKG_X_X_X_X_X_0                                            90920102 : "b90920102_fail_TPI_BASE_END_BYPASS_X_AUX_K_BGNPKG_X_X_X_X_X_0"                                           , b9201_fail_TPI_BASE_END_BEGIN;
+        LeafBin b90920103_fail_TPI_BASE_END_BYPASS_X_AUX_K_BGNPKG_X_X_X_X_X_2                                            90920103 : "b90920103_fail_TPI_BASE_END_BYPASS_X_AUX_K_BGNPKG_X_X_X_X_X_2"                                           , b9201_fail_TPI_BASE_END_BEGIN;
+        LeafBin b90920401_fail_TPI_BASE_END_AHMTFORK_X_AUX_K_START_X_X_X_X_X_0                                           90920401 : "b90920401_fail_TPI_BASE_END_AHMTFORK_X_AUX_K_START_X_X_X_X_X_0"                                          , b9204_fail_TPI_BASE_END_START;
+        LeafBin b90920500_fail_TPI_BASE_END_PERFORMANCEPROFILE_X_PERFORMANCEPROFILE_K_TESTPLANSTARTFLOW_X_X_X_X_TT_ON_0  90920500 : "b90920500_fail_TPI_BASE_END_PERFORMANCEPROFILE_X_PERFORMANCEPROFILE_K_TESTPLANSTARTFLOW_X_X_X_X_TT_ON_0" , b9205_fail_TPI_BASE_END_TESTPLANSTARTFLOW;
+        LeafBin b90920501_fail_TPI_BASE_END_CTRL_X_PAUSE_K_TESTPLANSTARTFLOW_X_X_X_X_TPSFLAGPASS_0                       90920501 : "b90920501_fail_TPI_BASE_END_CTRL_X_PAUSE_K_TESTPLANSTARTFLOW_X_X_X_X_TPSFLAGPASS_0"                      , b9205_fail_TPI_BASE_END_TESTPLANSTARTFLOW;
+        LeafBin b90920601_fail_TPI_BASE_END_CTRL_X_PAUSE_E_TESTPLANENDFLOW_X_X_X_X_X_0                                   90920601 : "b90920601_fail_TPI_BASE_END_CTRL_X_PAUSE_E_TESTPLANENDFLOW_X_X_X_X_X_0"                                  , b9206_fail_TPI_BASE_END_TESTPLANENDFLOW;
+        LeafBin b90920602_fail_TPI_BASE_END_CTRL_X_DEVICEENDDATALOG_K_TESTPLANENDFLOW_X_X_X_X_X_0                        90920602 : "b90920602_fail_TPI_BASE_END_CTRL_X_DEVICEENDDATALOG_K_TESTPLANENDFLOW_X_X_X_X_X_0"                       , b9206_fail_TPI_BASE_END_TESTPLANENDFLOW;
+        LeafBin b90920604_fail_TPI_BASE_END_CTRL_X_ODESE_E_TESTPLANENDFLOW_X_X_X_X_BINPRINT_0                            90920604 : "b90920604_fail_TPI_BASE_END_CTRL_X_ODESE_E_TESTPLANENDFLOW_X_X_X_X_BINPRINT_0"                           , b9206_fail_TPI_BASE_END_TESTPLANENDFLOW;
+        LeafBin b90920606_fail_TPI_BASE_END_CTRL_X_DEVICEENDFINALIZE_K_TESTPLANENDFLOW_X_X_X_X_X_0                       90920606 : "b90920606_fail_TPI_BASE_END_CTRL_X_DEVICEENDFINALIZE_K_TESTPLANENDFLOW_X_X_X_X_X_0"                      , b9206_fail_TPI_BASE_END_TESTPLANENDFLOW;
+		LeafBin b90930002_fail_TPI_BASE_END_BYPASS_X_AUX_K_ENDPKG_X_X_X_X_QUALELT_2                                      90930002 : "b90930002_fail_TPI_BASE_END_BYPASS_X_AUX_K_ENDPKG_X_X_X_X_QUALELT_2"                                   , b9300_fail_TPI_BASE_BCKGRNDTEST;
+        LeafBin b90930003_fail_TPI_BASE_END_DFF_X_AUX_K_TESTPLANENDFLOW_X_X_X_X_SETOLB_0                                 90930003 : "b90930003_fail_TPI_BASE_END_DFF_X_AUX_K_TESTPLANENDFLOW_X_X_X_X_SETOLB_0"                                , b9300_fail_TPI_BASE_BCKGRNDTEST;
+		LeafBin b90930004_fail_TPI_BASE_END_BYPASS_X_AUX_K_ENDPKG_X_X_X_X_QUALELT_0                                      90930004 : "b90930004_fail_TPI_BASE_END_BYPASS_X_AUX_K_ENDPKG_X_X_X_X_QUALELT_0"                                   , b9300_fail_TPI_BASE_BCKGRNDTEST;
+        LeafBin b90989003_fail_TPI_BASE_END_SHARED_BIN_n1                                                                90989003 : "b90989003_fail_TPI_BASE_END_SHARED_BIN_n1"                                                               , b9890_fail_FAIL_SYSTEM_SOFTWARE;
+        LeafBin b90999003_fail_TPI_BASE_END_SHARED_BIN_n2                                                                90999003 : "b90999003_fail_TPI_BASE_END_SHARED_BIN_n2"                                                               , b9990_fail_FAIL_DPS_ALARM;
+    }
+
+}

@@ -1,4 +1,4 @@
-# Yield Retest Report Standalone
+# Fuse Yield Retest Report Standalone
 
 Standalone utilities for pulling VPO bin attributes from MIDAS and generating an interactive yield/retest HTML report.
 
