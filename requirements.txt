@@ -1,4 +1,9 @@
 # Direct Python dependencies for the standalone scripts.
-# `pysvtools` is typically resolved from Intel's internal Python package index.
+# Install from Intel PyPI: https://intelpypi.intel.com/pythonsv/production
+#
+# Install keyring first (before this file) to avoid auth issues:
+#   pip install "keyring<23.7.0" -i https://intelpypi.intel.com/pythonsv/production
+
 pandas
 pysvtools
+pysvtools-mapi

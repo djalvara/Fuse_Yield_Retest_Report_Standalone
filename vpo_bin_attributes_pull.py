@@ -96,13 +96,7 @@ from unittest.mock import patch
 if TYPE_CHECKING:
     import pandas as pd
 
-# ---------------------------------------------------------------------------
-# Path bootstrap – make both src trees importable without installing packages
-# ---------------------------------------------------------------------------
-_REPO_ROOT = Path(__file__).resolve().parents[1]
-_DDA_SRC = _REPO_ROOT / "applications.analytics.dda-tool" / "src"
-if str(_DDA_SRC) not in sys.path:
-    sys.path.insert(0, str(_DDA_SRC))
+_REPO_ROOT = Path(__file__).resolve().parent
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -143,7 +137,7 @@ FINAL_COLUMNS = [
 ]
 
 DEFAULT_OUTPUT_DIR = Path(__file__).resolve().parent / "output_dir"
-VENV_PYTHON = _REPO_ROOT / "applications.analytics.dda-tool" / ".venv" / "Scripts" / "python.exe"
+VENV_PYTHON = _REPO_ROOT / ".venv" / "Scripts" / "python.exe"
 TOOLS_COLLATERALS_DIR = Path(__file__).resolve().parent / "tools_collaterals"
 BIN_REPORT_FILENAME = "BinReport.xml"
 DEFAULT_RELEASE_ROOT = r"\\amr\ec\proj\mdl\cr\intel\hdmxprogs"

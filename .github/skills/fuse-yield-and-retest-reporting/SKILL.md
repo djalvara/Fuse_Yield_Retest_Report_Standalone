@@ -1,5 +1,5 @@
 ---
-name: qbot-vpo-reporting
+name: fuse-yield-and-retest-reporting
 description: "Use when working on the VPO reporting workflow, including vpo_bin_attributes_pull.py, Yield_Retest_Report_Create.py, setup, execution, troubleshooting, and report interpretation."
 ---
 

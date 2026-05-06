@@ -5,7 +5,7 @@ Standalone utilities for pulling VPO bin attributes from MIDAS and generating an
 ## Files
 - `vpo_bin_attributes_pull.py`: pulls raw MIDAS data, curates it, and writes timestamped CSV output.
 - `Yield_Retest_Report_Create.py`: builds a self-contained HTML report from a curated CSV.
-- `.github/skills/qbot-vpo-reporting/SKILL.md`: workspace skill describing setup, workflow, and troubleshooting.
+- `.github/skills/fuse-yield-and-retest-reporting/SKILL.md`: workspace skill describing setup, workflow, and troubleshooting.
 
 ## Requirements
 - Windows PowerShell.
@@ -13,31 +13,119 @@ Standalone utilities for pulling VPO bin attributes from MIDAS and generating an
 - Access to the required Intel Python package index.
 - `IntelChain.pem` present locally at the repository root.
 
-## Install
-Create and activate a virtual environment, then install the Python dependencies:
+## Installation
+
+### Step 1: Prepare Environment
+
+Check Python installation:
+
+```powershell
+python --version
+# Expected output: Python 3.10.9 or higher
+```
+
+Configure network only if you are behind a corporate proxy and it is not already auto-configured:
+
+```powershell
+$env:HTTP_PROXY = "http://proxy-jf.intel.com:912"
+$env:HTTPS_PROXY = "http://proxy-jf.intel.com:912"
+$env:NO_PROXY = "localhost,127.0.0.1,.intel.com"
+```
+
+### Step 2: Create Virtual Environment
+
+Purpose: isolate project dependencies and avoid conflicts with system packages.
 
 ```powershell
 python -m venv .venv
+```
+
+Verification:
+
+```powershell
+.\.venv\Scripts\python.exe --version
+```
+
+### Step 3: Activate Virtual Environment
+
+Windows PowerShell:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+Windows Command Prompt:
+
+```bat
+.\.venv\Scripts\activate.bat
+```
+
+Linux/macOS:
+
+```bash
+source .venv/bin/activate
+```
+
+Visual indicator: your prompt is prefixed with `(.venv)` when activation succeeds.
+
+### Step 4: Install Keyring (Recommended)
+
+Install this before full requirements when using Intel PyPI authentication:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+python -m pip install "keyring<23.7.0" -i https://intelpypi.intel.com/pythonsv/production
+```
+
+Why this version: newer keyring versions may have compatibility issues with the Intel PyPI mirror; `<23.7.0` is typically stable in this workflow.
+
+### Step 5: Install Project Dependencies
+
+```powershell
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r .\requirements.txt -i https://intelpypi.intel.com/pythonsv/production
 ```
 
-If your environment needs the older keyring package used in related Intel tooling, install it before the requirements file:
+Intel PyPI authentication notes:
+- First run can prompt for Intel SSO credentials.
+- Keyring caches credentials for later installs.
 
-```powershell
-python -m pip install "keyring<23.7.0" -i https://intelpypi.intel.com/pythonsv/production
-```
+### Step 6: Setup MIDAS Database Access
 
-## Setup
-Set the certificate path in each new terminal session:
+Prerequisites:
+1. If `IntelChain.pem` is not present in the repository root, download it from [Intel SharePoint](https://intel.sharepoint.com/sites/Midasshare/MIDAS%20Library/).
+2. Place it in the workspace root as `IntelChain.pem`.
+
+Set MIDAS certificate for the current session:
 
 ```powershell
 $env:MIDAS_CERTIFICATE = ".\\IntelChain.pem"
 ```
 
-If you use a virtual environment, activate it before running either script.
+Verification:
+
+```powershell
+echo $env:MIDAS_CERTIFICATE
+# Expected output ends with \IntelChain.pem
+```
+
+Optional cleanup:
+
+```powershell
+Remove-Item Env:MIDAS_CERTIFICATE
+echo $env:MIDAS_CERTIFICATE
+# Should be empty
+```
 
 ## Typical Workflow
+
+Activate the virtual environment and set the certificate before running any script:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+$env:MIDAS_CERTIFICATE = ".\IntelChain.pem"
+```
+
 Pull a curated CSV for a recent day window:
 
 ```powershell
@@ -103,4 +191,4 @@ Common generated artifacts:
 - If `--csv` is omitted for report generation, the latest non-raw CSV in `output_dir` is used.
 
 ## More Detail
-For workflow details, troubleshooting, and report interpretation, see `.github/skills/qbot-vpo-reporting/SKILL.md`.
+For workflow details, troubleshooting, and report interpretation, see `.github/skills/fuse-yield-and-retest-reporting/SKILL.md`.

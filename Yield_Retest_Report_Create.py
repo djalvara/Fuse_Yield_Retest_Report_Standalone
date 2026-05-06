@@ -969,7 +969,7 @@ def main() -> None:
 
       if (!grouped.size) {{
         if (titleEl) titleEl.textContent = 'Top 0 by Retest run cells';
-        container.innerHTML = '<p class="sub">No rows for current chart filters.</p>';
+        container.innerHTML = '<p class="sub" style="text-align:center;font-style:italic;padding:48px 0;margin:0;">No data for current chart filters.</p>';
         container.style.maxHeight = '';
         return;
       }}
@@ -1844,6 +1844,7 @@ def main() -> None:
           syncGraphFiltersToDatasetInputs();
           applyDatasetFilters(true);
         }}
+        refreshRetestLinkedTableFromControls();
         return;
       }}
 
