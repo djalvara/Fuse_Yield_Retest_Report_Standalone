@@ -7,8 +7,8 @@ description: "Use when working on the VPO reporting workflow, including vpo_bin_
 
 ## Purpose
 This skill documents the end-to-end workflow for:
-- `TOOLS/vpo_bin_attributes_pull.py` (data pull and curation)
-- `TOOLS/Yield_Retest_Report_Create.py` (interactive HTML report generation)
+- `vpo_bin_attributes_pull.py` (data pull and curation)
+- `Yield_Retest_Report_Create.py` (interactive HTML report generation)
 
 It is designed to be shared with teammates so they can run, troubleshoot, and interpret outputs consistently.
 
@@ -20,49 +20,24 @@ It is designed to be shared with teammates so they can run, troubleshoot, and in
 
 Use this section first before running either script.
 
-### 1) Minimum Requirements
-- Windows PowerShell terminal.
-- Python 3.10+ available.
-- Intel certificate file at `IntelChain.pem` (workspace root).
-- Access to Intel PyPI for dependency installation:
-  - `https://intelpypi.intel.com/pythonsv/production`
+> **For requirements and installation steps, see [README.md](../../../README.md).** This skill covers operational workflow, script behavior, troubleshooting, and report interpretation only.
 
-### 2) Recommended Python Environment
-For end-to-end pull + report generation, use the DDA tool environment because it already contains the required data and MIDAS packages.
-
-Recommended interpreter:
-- `applications.analytics.dda-tool/.venv/Scripts/python.exe`
-
-### 3) One-Time Setup (if environment is not ready)
-```powershell
-cd applications.analytics.dda-tool
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install "keyring<23.7.0" -i https://intelpypi.intel.com/pythonsv/production
-python -m pip install -r requirements.txt -i https://intelpypi.intel.com/pythonsv/production
-```
-
-### 4) Session Setup (every new terminal)
+### Session Setup (every new terminal)
 ```powershell
 $env:MIDAS_CERTIFICATE = ".\\IntelChain.pem"
 ```
 
-Optional import path setup if you run qbot_flow modules from `applications.analytics.dda-tool`:
-```powershell
-$env:PYTHONPATH = "applications.analytics.dda-tool/src;applications.ai.qbot-agents/src"
-```
-
-### 5) Smoke Test (first validation)
+### Smoke Test (first validation)
 Run a short pull and generate a report from that CSV:
 
 ```powershell
-& "applications.analytics.dda-tool/.venv/Scripts/python.exe" TOOLS\vpo_bin_attributes_pull.py --product GNR --days-ago 2
-& "applications.analytics.dda-tool/.venv/Scripts/python.exe" TOOLS\Yield_Retest_Report_Create.py --csv TOOLS\output_dir\<new_curated_csv>.csv
+python .\vpo_bin_attributes_pull.py --product GNR --days-ago 2
+python .\Yield_Retest_Report_Create.py --csv .\output_dir\<new_curated_csv>.csv
 ```
 
 Expected outcome:
-- A curated CSV in `TOOLS/output_dir`.
-- A matching interactive HTML report in `TOOLS/output_dir`.
+- A curated CSV in `output_dir`.
+- A matching interactive HTML report in `output_dir`.
 - No lock-file conflict (`.vpo_bin_attributes_pull.lock`) while only one pull is running.
 
 ## What This Workflow Produces
@@ -77,7 +52,7 @@ Expected outcome:
 - CSV export for the filtered dataset
 
 ## Script 1: Data Pull and Curation
-File: `TOOLS/vpo_bin_attributes_pull.py`
+File: `vpo_bin_attributes_pull.py`
 
 ### Core Behavior
 - Submits exactly one MIDAS query per script execution.
@@ -102,13 +77,13 @@ File: `TOOLS/vpo_bin_attributes_pull.py`
   - For each resolved TP release, the script uses this canonical source path (relative to HDMXPROGS root):
     `hdmxprogs/<PRODUCT>/<TP_RELEASE>/POR_TP/CLASS_TP/Reports/BinReport.xml`.
   - Local cache mirror path used by the script:
-    `TOOLS/tools_collaterals/<PRODUCT>/<TP_RELEASE>/POR_TP/CLASS_TP/Reports/BinReport.xml`.
-  - If TP release does not resolve or the TP file is missing, script falls back to product-level `BinReport.xml` under `TOOLS/tools_collaterals/<PRODUCT>` (for example `BinReport_Fallback/BinReport.xml` when present).
+    `tools_collaterals/<PRODUCT>/<TP_RELEASE>/POR_TP/CLASS_TP/Reports/BinReport.xml`.
+  - If TP release does not resolve or the TP file is missing, script falls back to product-level `BinReport.xml` under `tools_collaterals/<PRODUCT>` (for example `BinReport_Fallback/BinReport.xml` when present).
 - Adds `OPERGROUP` to output as the first curated column.
 
 ### Single-Instance Safety (Important)
 The script enforces a lock file:
-- `TOOLS/output_dir/.vpo_bin_attributes_pull.lock`
+- `output_dir/.vpo_bin_attributes_pull.lock`
 
 If another instance is running, the script exits with guidance. This protects against accidental concurrent MIDAS submissions.
 
@@ -119,39 +94,39 @@ Stale lock handling is built in:
 ### CLI Examples
 Run a pull:
 ```powershell
-applications.analytics.dda-tool/.venv/Scripts/python.exe TOOLS/vpo_bin_attributes_pull.py --product GNR --days-ago 5
+python .\vpo_bin_attributes_pull.py --product GNR --days-ago 5
 ```
 
 Run an exact month pull:
 ```powershell
-applications.analytics.dda-tool/.venv/Scripts/python.exe TOOLS/vpo_bin_attributes_pull.py --product DMR --month 2026-03
+python .\vpo_bin_attributes_pull.py --product DMR --month 2026-03
 ```
 
 Keep raw CSV explicitly:
 ```powershell
-applications.analytics.dda-tool/.venv/Scripts/python.exe TOOLS/vpo_bin_attributes_pull.py --product DMR --month 2026-03 --keep-raw
+python .\vpo_bin_attributes_pull.py --product DMR --month 2026-03 --keep-raw
 ```
 
 Run latest-only mode:
 ```powershell
-applications.analytics.dda-tool/.venv/Scripts/python.exe TOOLS/vpo_bin_attributes_pull.py --product GNR --days-ago 15 --latest-only
+python .\vpo_bin_attributes_pull.py --product GNR --days-ago 15 --latest-only
 ```
 
 Run pull and auto-generate HTML report in one step:
 ```powershell
-applications.analytics.dda-tool/.venv/Scripts/python.exe TOOLS/vpo_bin_attributes_pull.py --product GNR --days-ago 15 --create-report
+python .\vpo_bin_attributes_pull.py --product GNR --days-ago 15 --create-report
 ```
 
 Filter by lot and visual ID:
 ```powershell
-applications.analytics.dda-tool/.venv/Scripts/python.exe TOOLS/vpo_bin_attributes_pull.py --product GNR --days-ago 18 --lot J615177CR --visual-id 440A226X00344
+python .\vpo_bin_attributes_pull.py --product GNR --days-ago 18 --lot J615177CR --visual-id 440A226X00344
 ```
 
 ### Key Inputs
 - `--product` required unless `--describe`
 - exactly one of `--days-ago` or `--month` required unless `--describe`
 - `--month` format must be `YYYY-MM` and cannot be in the future
-- `--output-dir` optional (default `TOOLS/output_dir`)
+- `--output-dir` optional (default `output_dir`)
 - `--keep-raw` optional (default is delete raw after curated write)
 - `--lot` optional
 - `--visual-id` optional
@@ -187,7 +162,7 @@ applications.analytics.dda-tool/.venv/Scripts/python.exe TOOLS/vpo_bin_attribute
   - Curated CSV: `vpo_bin_attrs_<PRODUCT>_<YYYY-MM>_<TIMESTAMP>.csv`
 
 ## Script 2: Interactive Report Builder
-File: `TOOLS/Yield_Retest_Report_Create.py`
+File: `Yield_Retest_Report_Create.py`
 
 ### Core Behavior
 - Reads curated CSV and builds a single self-contained HTML report.
@@ -221,12 +196,12 @@ Only columns present in the source CSV fieldnames are rendered.
 ### CLI Examples
 Generate report from a specific CSV:
 ```powershell
-applications.analytics.dda-tool/.venv/Scripts/python.exe TOOLS/Yield_Retest_Report_Create.py --csv TOOLS/output_dir/vpo_bin_attrs_GNR_5d_20260417_143951.csv
+python .\Yield_Retest_Report_Create.py --csv .\output_dir\vpo_bin_attrs_GNR_5d_20260417_143951.csv
 ```
 
 Generate report with custom output path:
 ```powershell
-applications.analytics.dda-tool/.venv/Scripts/python.exe TOOLS/Yield_Retest_Report_Create.py --csv TOOLS/output_dir/vpo_bin_attrs_GNR_5d_20260417_143951.csv --output TOOLS/output_dir/custom_report.html
+python .\Yield_Retest_Report_Create.py --csv .\output_dir\vpo_bin_attrs_GNR_5d_20260417_143951.csv --output .\output_dir\custom_report.html
 ```
 
 ### Output Filename
@@ -238,7 +213,7 @@ For example, CSV `vpo_bin_attrs_DMR_2026-03_20260505_140531.csv` produces:
 ```
 yield_and_retest_report_vpo_bin_attrs_DMR_2026-03_20260505_140531.html
 ```
-When invoked via `--create-report` from the pull script, the HTML is written beside the curated CSV in `TOOLS/output_dir`.
+When invoked via `--create-report` from the pull script, the HTML is written beside the curated CSV in `output_dir`.
 
 ### Report Interaction Rules
 - Drilldown chart levels:
@@ -284,13 +259,13 @@ Bar labels show `true% / relative%` when values differ.
 ## Recommended End-to-End Runbook
 1. Pull data:
 ```powershell
-applications.analytics.dda-tool/.venv/Scripts/python.exe TOOLS/vpo_bin_attributes_pull.py --product GNR --days-ago 5
+python .\vpo_bin_attributes_pull.py --product GNR --days-ago 5
 ```
 2. Generate report from the new curated CSV:
 ```powershell
-applications.analytics.dda-tool/.venv/Scripts/python.exe TOOLS/Yield_Retest_Report_Create.py --csv TOOLS/output_dir/<new_curated_csv>.csv
+python .\Yield_Retest_Report_Create.py --csv .\output_dir\<new_curated_csv>.csv
 ```
-3. Open generated HTML from `TOOLS/output_dir`.
+3. Open generated HTML from `output_dir`.
 
 ## Troubleshooting
 
@@ -351,7 +326,7 @@ applications.analytics.dda-tool/.venv/Scripts/python.exe TOOLS/Yield_Retest_Repo
 | **N+Y unique-pair denominator** | The count of distinct lot-unit pairs that had at least one non-latest (`N`) run at a given bin level. Used as the denominator for recovery rate percentages in the lower chart. |
 | **True% / Relative%** | Two percentage semantics used in upper chart bar labels when they differ. `True%` is fixed to the full latest-run baseline (including INTERFACE_BIN=1). `Relative%` is computed from the currently displayed (filtered) chart subset. |
 | **Drill level** | Current depth of the drilldown chart. Level 0 = `INTERFACE_BIN`, Level 1 = `FUNCTIONAL_BIN`, Level 2 = `DATA_BIN`. |
-| **TP release** | Test program release version, resolved from the last 8 characters of `PROGRAM_OR_BI_RECIPE_NAME`. Used to locate product-specific `BinReport.xml` collateral under `TOOLS/tools_collaterals/<PRODUCT>/<TP_RELEASE>/POR_TP/CLASS_TP/Reports/`. |
+| **TP release** | Test program release version, resolved from the last 8 characters of `PROGRAM_OR_BI_RECIPE_NAME`. Used to locate product-specific `BinReport.xml` collateral under `tools_collaterals/<PRODUCT>/<TP_RELEASE>/POR_TP/CLASS_TP/Reports/`. |
 | **BinReport.xml collateral** | XML collateral file used to map numeric `DATA_BIN` values to descriptive `Failing_Instance` labels (from `<Element name="...">` and child `<Testname name="...">` entries). |
 | **MIDAS** | Intel manufacturing data system queried by `vpo_bin_attributes_pull.py` to retrieve per-unit test results. |
 
@@ -400,13 +375,46 @@ applications.analytics.dda-tool/.venv/Scripts/python.exe TOOLS/Yield_Retest_Repo
 - Prefer explicit `--csv` during report generation when validating specific runs.
 - Use `OPERGROUP` as the operation truth source in downstream report interpretation.
 
+## Example Natural Language Queries
+
+Use these as prompts when asking an agent (or a teammate) to run this workflow:
+
+**Pull only:**
+- "Pull the last 7 days of GNR VPO data."
+- "Get me a fresh DMR pull for the past 30 days."
+- "Pull CWF data for March 2026."
+- "Pull GNR data for the last 5 days and keep the raw CSV."
+- "Pull only the latest runs for GNR over the past 2 weeks."
+- "Pull GNR data for lot J615177CR over the last 18 days."
+
+**Report only (from existing CSV):**
+- "Generate a yield report from the latest GNR CSV."
+- "Build an HTML report from `output_dir\vpo_bin_attrs_GNR_7d_20260506_161552.csv`."
+- "Create an interactive report for the DMR 30-day pull I did yesterday."
+
+**Pull and report in one step:**
+- "Pull the last 5 days of GNR data and generate a report."
+- "Run a DMR pull for the past 2 weeks and give me the HTML report."
+- "Get fresh CWF data for the last 7 days and create the interactive report."
+
+**Troubleshooting / interpretation:**
+- "The lock file is stuck — what should I do?"
+- "Why does my report show operations 6197 and 6262 for GNR?"
+- "What does INTERFACE_BIN = 100 mean?"
+- "How is yield calculated in this report?"
+- "The data in my report looks old — how do I fix that?"
+- "What's the difference between true% and relative% in the chart?"
+- "Why isn't clicking a DATA_BIN bar filtering the Complete Dataset?"
+
+---
+
 ## Quick Commands Reference
 Pull 5-day GNR:
 ```powershell
-applications.analytics.dda-tool/.venv/Scripts/python.exe TOOLS/vpo_bin_attributes_pull.py --product GNR --days-ago 5
+python .\vpo_bin_attributes_pull.py --product GNR --days-ago 5
 ```
 
 Build report from that pull:
 ```powershell
-applications.analytics.dda-tool/.venv/Scripts/python.exe TOOLS/Yield_Retest_Report_Create.py --csv TOOLS/output_dir/vpo_bin_attrs_GNR_5d_<timestamp>.csv
+python .\Yield_Retest_Report_Create.py --csv .\output_dir\vpo_bin_attrs_GNR_5d_<timestamp>.csv
 ```

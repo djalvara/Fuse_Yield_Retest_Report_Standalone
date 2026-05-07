@@ -9,7 +9,7 @@ Standalone utilities for pulling VPO bin attributes from MIDAS and generating an
 
 ## Requirements
 - Windows PowerShell.
-- Python 3.10 or newer.
+- Python 3.10.9 (current known working version for this environment).
 - Access to the required Intel Python package index.
 - `IntelChain.pem` present locally at the repository root.
 
@@ -21,7 +21,7 @@ Check Python installation:
 
 ```powershell
 python --version
-# Expected output: Python 3.10.9 or higher
+# Expected output: Python 3.10.9
 ```
 
 Configure network only if you are behind a corporate proxy and it is not already auto-configured:
@@ -93,7 +93,7 @@ Intel PyPI authentication notes:
 ### Step 6: Setup MIDAS Database Access
 
 Prerequisites:
-1. If `IntelChain.pem` is not present in the repository root, download it from [Intel SharePoint](https://intel.sharepoint.com/sites/Midasshare/MIDAS%20Library/).
+1. If `IntelChain.pem` is not present in the repository root, download it from [Intel SharePoint](https://intel.sharepoint.com/sites/Midasshare/MIDAS%20Library/Forms/AllItems.aspx?view=7&q=IntelChain%2Epem) and always choose the latest available `.pem` file.
 2. Place it in the workspace root as `IntelChain.pem`.
 
 Set MIDAS certificate for the current session:
